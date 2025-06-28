@@ -1,0 +1,62 @@
+/* Brennan Cheatwood - Assignment 4.2 CSD340 
+ https://github.com/chromafella/csd-340 */
+
+html, body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+#image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+    margin-top: 10%;
+}
+
+figure {
+    text-align: center;
+    margin: 0;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: 0.75em;
+    text-align: center;
+}
+
+h1 {
+    color: rgba(200, 50, 50, 0.9);
+}
+
+h3 {
+    color: rgba(50, 120, 200, 0.9);
+}
+
+figcaption {
+    color: rgba(100, 100, 100, 0.8);
+}
+
+.gallery-item {
+    border: 1px solid red;
+    padding: 15px;
+    border-radius: 0px;
+    background-color: rgba(250, 250, 250, 0.8);
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+}
+
+.last-div {
+    margin-top: 100px;
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: teal;
+}
