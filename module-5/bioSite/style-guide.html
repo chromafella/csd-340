@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hope's Style Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .style-section {
+      padding: 40px;
+      border-bottom: 1px solid #ddd;
+    }
+    .color-swatch {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .swatch {
+      width: 120px;
+      height: 120px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .typography-sample {
+      margin-bottom: 1rem;
+    }
+    nav {
+        background-color: var(--primary-color);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: var(--secondary-color);
+    }
+
+.card {
+  background-color: var(--background-light);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card-image {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card-content h3 {
+  margin: 0 0 10px;
+  color: var(--primary-color);
+}
+
+.card-content p {
+  color: #333;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Front-End Style Guide: Hope's Story Website</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="hobbies.html">Hobbies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Colors -->
+  <section class="style-section">
+    <h2>Color Palette</h2>
+    <div class="color-swatch">
+      <div class="swatch" style="background:#85629B;">#85629B<br>Dusty Purple<br>(Primary)</div>
+      <div class="swatch" style="background:#DB5C39;">#DB5C39<br>Coral Orange<br>(Accent)</div>
+      <div class="swatch" style="background:#DE45D1;">#DE45D1<br>Electric Pink<br>(Secondary)</div>
+      <div class="swatch" style="background:#DB6F00;">#DB6F00<br>Golden Orange<br>(CTA)</div>
+      <div class="swatch" style="background:#DBC4B2; color: #000;">#DBC4B2<br>Soft Cream<br>(Background)</div>
+      <div class="swatch" style="background:#DB2616;">#DB2616<br>Bold Red<br>(Alert)</div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="card-section">
+    <h2>Typography</h2>
+    <p class="typography-sample" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;">
+      This is a sample of the body text using Helvetica Neue. It's clean and legible.
+    </p>
+    <h1 class="typography-sample">H1 - Page Title</h1>
+    <h2 class="typography-sample">H2 - Section Title</h2>
+    <h3 class="typography-sample">H3 - Subheading</h3>
+    <p class="typography-sample">Paragraph - Default text size and spacing.</p>
+  </section>
+
+  <!-- Buttons -->
+  <section class="style-section">
+    <h2>Buttons</h2>
+    <div class="button-container">
+      <button class="button">Primary Button</button>
+      <button class="button secondary">Secondary Button</button>
+      <button class="button glow">Glow Button</button>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="style-section">
+    <h2>Navigation Styles</h2>
+    <nav>
+      <ul>
+        <li><a href="#">Link One</a></li>
+        <li><a href="#">Link Two</a></li>
+        <li><a href="#">Link Three</a></li>
+      </ul>
+    </nav>
+    <p>Hover over links to see transition effect.</p>
+  </section>
+
+  <!-- Images -->
+  <section class="card-section">
+    <h2>Image Styling</h2>
+    <div class="image-grid">
+      <img src="images/IMG_2984.JPEG" alt="Example Image">
+      <img src="images/IMG_3058.JPEG" alt="Example Image">
+    </div>
+  </section>
+
+  <!-- Layout -->
+  <section class="style-section">
+    <h2>Layout & Utilities</h2>
+    <ul>
+      <li>Image grids use CSS Grid for flexible layouts</li>
+      <li>Header, sections, and text are centered with padding</li>
+      <li>Buttons have hover states and subtle animation</li>
+      <li>Cards and sections can use soft cream as background</li>
+    </ul>
+  </section>
+
+<!-- Card Component Example -->
+
+<section class="style-section">
+  <h2>Card Component Example</h2>
+  <div class="card">
+    <img src="images/IMG_4224.JPG" alt="Card Example" class="card-image">
+    <div class="card-content">
+      <h3>Hope's Favorite Memory</h3>
+      <p>This card layout uses the soft cream background. It's great for quotes, highlights, memories, or even photo descriptions throughout the site.</p>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <p>© 2025 Brennan Cheatwood | CSD340</p><a href="index.html">Back to bioSite</a>
+  </footer>
+
+</body>
+</html>

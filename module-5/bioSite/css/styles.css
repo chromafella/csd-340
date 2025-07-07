@@ -1,0 +1,168 @@
+/* --- Style Guide / Pattern Library --- */
+
+/* Fonts */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Color Palette (Hope's New Color Scheme) */
+:root {
+  --primary-color: #85629B;   /* Dusty Purple */
+  --accent-color: #DB5C39;    /* Coral Orange */
+  --secondary-color: #DE45D1; /* Electric Pink */
+  --cta-color: #DB6F00;       /* Golden Orange */
+  --background-light: #DBC4B2;/* Soft Cream */
+  --alert-color: #DB2616;     /* Bold Red */
+  --light-color: #ffffff;
+  --dark-color: #222222;
+}
+
+.card-section {
+  background-color: var(--background-light);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Buttons --- */
+
+.button {
+  background-color: var(--accent-color);
+  color: var(--light-color);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.button.secondary {
+  background-color: var(--secondary-color);
+}
+
+.button.secondary:hover {
+  background-color: var(--cta-color);
+  transform: scale(1.05);
+}
+
+.button.glow {
+  background-color: var(--alert-color);
+  box-shadow: 0 0 10px var(--alert-color), 0 0 40px var(--alert-color);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px var(--alert-color), 0 0 40px var(--alert-color); }
+  50% { box-shadow: 0 0 20px var(--alert-color), 0 0 60px var(--alert-color); }
+  100% { box-shadow: 0 0 10px var(--alert-color), 0 0 40px var(--alert-color); }
+}
+
+
+/* --- Nav Link Hover Effect --- */
+nav ul li a:hover {
+  text-decoration: underline;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+.hero {
+  padding: 40px;
+  text-align: center;
+  background-color: var(--background-light);
+  color: var(--dark-color);
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.image-grid img {
+  width: 500px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.about img {
+  max-width: 250px;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+}
+
+.hobbies, .about, .gallery {
+  padding: 40px;
+  text-align: center;
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.alert-banner {
+  background-color: var(--alert-color);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border: 3px solid black;
+}
+
