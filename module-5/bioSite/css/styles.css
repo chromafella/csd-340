@@ -154,8 +154,8 @@ button {
 }
 
 .alert-banner {
-  background-color: var(--alert-color);
-  color: white;
+  background-color: yellow;
+  color: black;
   text-align: center;
   padding: 15px;
   font-weight: bold;
