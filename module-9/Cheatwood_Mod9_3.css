@@ -1,0 +1,74 @@
+/* Brennan Cheatwood - Assignment 9.3 - CSD-340 */
+
+html, body {
+    font-family: "Helvetica", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+p {
+    font-family: "Helvetica", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.4em;
+    font-style: normal;
+}
+
+h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 500;
+    text-align: left;
+    padding-top: 15px;
+}
+
+.button-container {
+    margin-top: 15px;
+}
+
+span {
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0 5px;
+}
+
+address {
+    text-align: center;
+}
+
+a.website-link {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #4F3674;
+    font-style: bold;
+    text-decoration: none;
+}
+
+a.website-link:hover {
+    text-decoration: underline;
+    background-color: #D6A800;
+}
+
+a.website-link:visited {
+    color:blue;
+    font-style: italic;
+}
+
+.sentence {
+    font-style: italic;
+}
+
+.intro {
+    text-indent: 2em;
+}
+
+footer {
+    background-color: black;
+    text-align: center;
+    font-weight: bold;
+    align-content: baseline;
+    position: static;
+    margin-top: 50%;
+}

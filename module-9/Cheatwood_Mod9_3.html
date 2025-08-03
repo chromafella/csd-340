@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Brennan Cheatwood - Assignment 9.3 CSD340 
+ https://github.com/chromafella/csd-340 -->
+<html lang="en">
+<head>
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <meta name="description"
+        content="An brand new webpage!" />
+    <meta name="keywords"
+        content="Web, Development, HTML" />
+    <meta http-equiv="author"
+        content="Brennan Cheatwood" />
+    <meta http-equiv="pragma"
+        content="no-cache" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Cheatwood_Mod9_3.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Assignment 9.3: JavaScript - Part 1</h1>
+
+            <h3>An Extremely Brief Biography about Brennan</h3>
+
+            <p>Brennan has always loved working with <span id="word1">_______</span>. Whether it’s building PCs or programming websites,
+            technology has been a big part of his life. Even outside of school, he often finds himself exploring new <span id="word2">_______</span>
+            and learning different tools that fuel his creativity.</p>
+
+            <p>In his free time, Brennan enjoys making music with his band, Violet Courtyard. He spends hours mixing songs and recording
+            drums in his home studio. His favorite way to relax after a long day of working is to listen to new <span id="word3">_______</span>
+            or go for a drive through the Smoky Mountains in his Tesla.</p>
+
+            <p>Brennan’s goal is to become a software engineer at a top company like Apple or AT&T. He’s constantly improving his skills,
+            whether it's through school projects, freelance websites, or learning from real-world <span id="word4">_______</span>. With passion
+            and determination, he’s paving the way toward a successful future in tech.</p>
+
+            <div class="button-container">
+            <button onclick="document.getElementById('word1').textContent = word1;">technology</button>
+            <button onclick="document.getElementById('word2').textContent = word2;">frameworks</button>
+            <button onclick="document.getElementById('word3').textContent = word3;">albums</button>
+            <button onclick="document.getElementById('word4').textContent = word4;">experiences</button>
+            </div>
+
+            <script>
+            let word1 = "technology";
+            let word2 = "frameworks";
+            let word3 = "albums";
+            let word4 = "experiences";
+            </script>
+
+            <hr />
+                <address>
+                    <a href="https://www.bellevue.edu/">
+                        <a class="website-link" href="https://www.bellevue.edu/">Bellevue University</p>
+                    </a>
+                    <p class="sentence">1000 Galvin Road South</p>
+                    <p class="sentence">Bellevue, NE 68005</p>
+                </address>
+    </div>
+</body>
+
+<footer>
+    <p><a style="color: white;" href="../index.html">Back to Landing Page</a></p>
+</footer>
+
+</html>
