@@ -211,7 +211,6 @@
       const controls = document.createElement("div");
       controls.className = "card-controls";
 
-      // Month dropdown
       const monthSelect = document.createElement("select");
       const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       months.forEach(m => {
@@ -221,7 +220,6 @@
         monthSelect.appendChild(opt);
       });
 
-      // Day dropdown
       const daySelect = document.createElement("select");
       for (let i = 1; i <= 31; i++) {
         const opt = document.createElement("option");
@@ -230,7 +228,6 @@
         daySelect.appendChild(opt);
       }
 
-      // Year dropdown
       const yearSelect = document.createElement("select");
       const currentYear = new Date().getFullYear();
       for (let y = currentYear; y <= currentYear + 5; y++) {
@@ -240,7 +237,6 @@
         yearSelect.appendChild(opt);
       }
 
-      // Update button
       const updateBtn = document.createElement("button");
       updateBtn.innerText = "Update Due Date";
       updateBtn.onclick = () => {
@@ -249,7 +245,6 @@
         renderTasks();
       };
 
-      // Delete button
       const deleteBtn = document.createElement("button");
       deleteBtn.innerText = "Delete Task";
       deleteBtn.style.backgroundColor = "#333";
@@ -261,7 +256,6 @@
         }
       };
 
-      // Done checkbox
       const doneLabel = document.createElement("label");
       doneLabel.style.marginRight = "10px";
       const doneCheckbox = document.createElement("input");
