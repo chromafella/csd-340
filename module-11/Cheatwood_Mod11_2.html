@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!-- Brennan Cheatwood - Assignment 11.2 CSD340 
+ https://github.com/chromafella/csd-340 -->
+<html lang="en">
+<head>
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <meta name="description"
+        content="Another brand new webpage!">
+    <meta name="keywords"
+        content="Web, Development, HTML, JS">
+    <meta http-equiv="author"
+        content="Brennan Cheatwood">
+    <meta http-equiv="pragma"
+        content="no-cache">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="">
+    <button onclick="toggleDarkMode()" id="darkModeBtn">Dark Mode</button>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 40px;
+      background-color: #f2f2f2;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: grey;
+    }
+    #displayArea {
+      margin-top: 20px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px #ccc;
+    }
+    footer {
+    background-color: black;
+    text-align: center;
+    font-weight: bold;
+    align-content: baseline;
+    position: static;
+    margin-top: 50%;
+}
+
+    .task-card {
+      background-color: white;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .task-header {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .card-controls {
+      margin-top: 10px;
+    }
+
+    .card-controls select,
+    .card-controls button {
+      margin-right: 10px;
+    }
+
+    .card-controls select {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="pageHeader">Assignment 11.2: JavaScript - Part 3</h1>
+  <p id="pageHeader" style="font-weight: bold;">Interactive To-Do List</p>
+  <p id="pageHeader">Create tasks with their due date. Mark as done when completed.</p>
+  <p id="pageHeader" style="font-weight: bold;">NO DATABASE CONNECTION - All data will be lost upon reload.</p>
+
+  <input type="text" id="itemInput" placeholder="Enter a task..." />
+
+  <select id="month"></select>
+  <select id="day"></select>
+  <select id="year"></select>
+
+  <!-- Grouped Buttons -->
+  <div style="margin-top: 10px;">
+  <button onclick="addItem()">Add Task</button>
+  <button onclick="deleteLastItem()">Delete Last Entry</button>
+  <button onclick="refreshList()">Refresh List</button>
+</div>
+
+
+  <div id="taskList"></div>
+
+  <script>
+  const itemList = [];
+  let taskId = 1;
+  let isDarkMode = false;
+
+  function populateDateFields() {
+    const monthSelect = document.getElementById("month");
+    const daySelect = document.getElementById("day");
+    const yearSelect = document.getElementById("year");
+
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const today = new Date();
+    const currentMonth = today.getMonth();
+    const currentDay = today.getDate();
+    const currentYear = today.getFullYear();
+
+    months.forEach((month, index) => {
+      const opt = document.createElement("option");
+      opt.text = month;
+      if (index === currentMonth) opt.selected = true;
+      monthSelect.add(opt);
+    });
+
+    for (let d = 1; d <= 31; d++) {
+      const opt = document.createElement("option");
+      opt.text = d;
+      if (d === currentDay) opt.selected = true;
+      daySelect.add(opt);
+    }
+
+    for (let y = currentYear; y <= currentYear + 5; y++) {
+      const opt = document.createElement("option");
+      opt.text = y;
+      if (y === currentYear) opt.selected = true;
+      yearSelect.add(opt);
+    }
+  }
+
+  window.onload = populateDateFields;
+
+  function addItem() {
+    const taskInput = document.getElementById("itemInput").value.trim();
+    const month = document.getElementById("month").value;
+    const day = document.getElementById("day").value;
+    const year = document.getElementById("year").value;
+
+    if (!taskInput) {
+      alert("Please enter a task.");
+      return;
+    }
+
+    const dueDate = `${month} ${day}, ${year}`;
+    const task = { id: taskId++, task: taskInput, dueDate, done: false };
+
+    itemList.push(task);
+    alert(`Added: "${task.task}" (Due: ${task.dueDate})`);
+    renderTasks();
+
+    document.getElementById("itemInput").value = "";
+  }
+
+  function deleteLastItem() {
+    if (itemList.length === 0) {
+      alert("No items to delete.");
+      return;
+    }
+    const removed = itemList.pop();
+    alert(`Deleted: "${removed.task}"`);
+    renderTasks();
+  }
+
+  function renderTasks() {
+    const taskList = document.getElementById("taskList");
+    taskList.innerHTML = "";
+
+  function refreshList() {
+  renderTasks();
+  }
+
+
+    itemList.forEach(task => {
+      const card = document.createElement("div");
+      card.className = "task-card";
+
+      const header = document.createElement("div");
+      header.className = "task-header";
+      header.innerText = task.task;
+      if (task.done) {
+        header.style.textDecoration = "line-through";
+        header.style.color = "gray";
+      }
+      card.appendChild(header);
+
+      const dueDateText = document.createElement("p");
+      dueDateText.innerText = "Due:";
+      card.appendChild(dueDateText);
+
+      const controls = document.createElement("div");
+      controls.className = "card-controls";
+
+      // Month dropdown
+      const monthSelect = document.createElement("select");
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      months.forEach(m => {
+        const opt = document.createElement("option");
+        opt.text = m;
+        if (task.dueDate.startsWith(m)) opt.selected = true;
+        monthSelect.appendChild(opt);
+      });
+
+      // Day dropdown
+      const daySelect = document.createElement("select");
+      for (let i = 1; i <= 31; i++) {
+        const opt = document.createElement("option");
+        opt.text = i;
+        if (task.dueDate.includes(` ${i},`)) opt.selected = true;
+        daySelect.appendChild(opt);
+      }
+
+      // Year dropdown
+      const yearSelect = document.createElement("select");
+      const currentYear = new Date().getFullYear();
+      for (let y = currentYear; y <= currentYear + 5; y++) {
+        const opt = document.createElement("option");
+        opt.text = y;
+        if (task.dueDate.endsWith(y.toString())) opt.selected = true;
+        yearSelect.appendChild(opt);
+      }
+
+      // Update button
+      const updateBtn = document.createElement("button");
+      updateBtn.innerText = "Update Due Date";
+      updateBtn.onclick = () => {
+        const newDate = `${monthSelect.value} ${daySelect.value}, ${yearSelect.value}`;
+        task.dueDate = newDate;
+        renderTasks();
+      };
+
+      // Delete button
+      const deleteBtn = document.createElement("button");
+      deleteBtn.innerText = "Delete Task";
+      deleteBtn.style.backgroundColor = "#333";
+      deleteBtn.onclick = () => {
+        const index = itemList.findIndex(t => t.id === task.id);
+        if (index !== -1) {
+          itemList.splice(index, 1);
+          renderTasks();
+        }
+      };
+
+      // Done checkbox
+      const doneLabel = document.createElement("label");
+      doneLabel.style.marginRight = "10px";
+      const doneCheckbox = document.createElement("input");
+      doneCheckbox.type = "checkbox";
+      doneCheckbox.checked = task.done;
+      doneCheckbox.onchange = () => {
+        task.done = doneCheckbox.checked;
+        renderTasks();
+      };
+      doneLabel.appendChild(doneCheckbox);
+      doneLabel.append(" Done");
+
+      controls.appendChild(monthSelect);
+      controls.appendChild(daySelect);
+      controls.appendChild(yearSelect);
+      controls.appendChild(updateBtn);
+      controls.appendChild(deleteBtn);
+      controls.appendChild(doneLabel);
+
+      card.appendChild(controls);
+      taskList.appendChild(card);
+    });
+  }
+
+  function toggleDarkMode() {
+  const body = document.body;
+  const header = document.getElementById("pageHeader");
+  isDarkMode = !isDarkMode;
+
+  if (isDarkMode) {
+    body.style.backgroundColor = "#121212";
+    body.style.color = "#eee";
+    header.style.color = "#fff";
+    document.querySelectorAll(".task-card").forEach(card => {
+      card.style.backgroundColor = "#1e1e1e";
+      card.style.boxShadow = "0 0 5px #333";
+    });
+  } else {
+    body.style.backgroundColor = "#f4f4f4";
+    body.style.color = "#000";
+    header.style.color = "#333";
+    document.querySelectorAll(".task-card").forEach(card => {
+      card.style.backgroundColor = "#fff";
+      card.style.boxShadow = "0 0 6px rgba(0, 0, 0, 0.1)";
+    });
+  }
+}
+
+</script>
+
+
+
+<footer>
+    <p><a style="color: white;" href="../index.html">Back to Landing Page</a></p>
+</footer>
+
+</html>
