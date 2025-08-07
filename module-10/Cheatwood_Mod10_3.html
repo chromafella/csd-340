@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- Brennan Cheatwood - Assignment 10.3 CSD340 
+ https://github.com/chromafella/csd-340 -->
+<html lang="en">
+<head>
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <meta name="description"
+        content="Another brand new webpage!">
+    <meta name="keywords"
+        content="Web, Development, HTML, JS">
+    <meta http-equiv="author"
+        content="Brennan Cheatwood">
+    <meta http-equiv="pragma"
+        content="no-cache">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Cheatwood_Mod9_3.css">
+    <style>
+    html, body {
+    font-family: "Helvetica", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: bisque;
+}
+
+p {
+    font-family: "Helvetica", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.4em;
+    font-style: normal;
+}
+
+h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 500;
+    text-align: left;
+    padding-top: 15px;
+}
+
+      .mainImage {
+        border: 2px solid black;
+        width: 650px;
+        height: 500px;
+        display: block;
+        margin: 20px auto;
+      }
+
+      .thumbnail {
+        width: 150px;
+        height: 100px;
+        cursor: pointer;
+        margin: 10px;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      footer {
+      background-color: black;
+      text-align: center;
+      font-weight: bold;
+      align-content: baseline;
+      position: static;
+      margin-top: 50%;
+}
+    </style>
+    <script>
+      let originalImage = "images/13.jpg";
+      let currentImage = originalImage;
+
+      function displayImage(imageFile) {
+        currentImage = imageFile;
+        document.getElementById("mainImage").src = imageFile;
+      }
+
+      function showOriginal() {
+        document.getElementById("mainImage").src = originalImage;
+      }
+
+      function restoreCurrent() {
+        document.getElementById("mainImage").src = currentImage;
+      }
+    </script>
+</head>
+
+ <body>
+    <h1 class="center">Assignment 10.3: JavaScript - Part 2</h1>
+    <h2 style="font-weight: bold;">Instructions:</h2>
+      <p>Click on photos underneath main image to enlarge.</p>
+      <p>Hover over main image to restore back to first image.</p>
+      <p>Move mouse away to restore back to selected image.</p>
+
+      <div class="center">
+      <img
+        id="mainImage"
+        src="images/13.jpg"
+        alt="Main Display"
+        class="mainImage"
+        onmouseover="showOriginal()"
+        onmouseout="restoreCurrent()"
+      />
+    </div>
+
+    <div class="center">
+      <img
+        src="images/19.jpg"
+        alt="Thumbnail 1"
+        class="thumbnail"
+        onclick="displayImage('images/19.jpg')"
+      />
+      <img
+        src="images/20.jpg"
+        alt="Thumbnail 2"
+        class="thumbnail"
+        onclick="displayImage('images/20.jpg')"
+      />
+      <img
+        src="images/24.jpg"
+        alt="Thumbnail 3"
+        class="thumbnail"
+        onclick="displayImage('images/24.jpg')"
+      />
+    </div>
+  </body>
+
+<footer>
+    <p><a style="color: white;" href="../index.html">Back to Landing Page</a></p>
+</footer>
+
+</html>
